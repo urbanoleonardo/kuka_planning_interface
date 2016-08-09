@@ -14,20 +14,14 @@ $ roslaunch pour_kuka client.launch
 
 ####Actions available in server:
 
-CDS motions:
+CDS motions (velocity interface in bridge):
 ```
 $ rosservice call /control_cmd_interface/kuka_cmd 'home'
 $ rosservice call /control_cmd_interface/kuka_cmd 'pour'
 $ rosservice call /control_cmd_interface/kuka_cmd 'back'
 ```
 
-Linear Joint Motion:
-```
-$ rosservice call /control_cmd_interface/kuka_cmd 'goto_init'
-$ rosservice call /control_cmd_interface/kuka_cmd 'goto_home'
-```
-
-Teaching commands:
+Teaching commands (velocity interface in bridge):
 ```
 $ rosservice call /control_cmd_interface/kuka_cmd 'grav_comp'
 $ rosservice call /control_cmd_interface/kuka_cmd 'safe_grav_comp'
@@ -37,6 +31,12 @@ $ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_6'
 $ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_7'
 $ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_5_6'
 
+```
+
+Linear Joint Motion (position interface in bridge):
+```
+$ rosservice call /control_cmd_interface/kuka_cmd 'goto_init'
+$ rosservice call /control_cmd_interface/kuka_cmd 'goto_home'
 ```
 
 ---
