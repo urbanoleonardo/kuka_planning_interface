@@ -8,6 +8,28 @@ Action/Client Interface to test robot functionalities, such as executing CDS mod
 | [state-transformers](https://github.com/epfl-lasa/state-transformers) |
 | [CDS](https://github.com/epfl-lasa/coupled-dynamical-systems) |
 
+---
+####To test this interface in simulation
+Launch rviz simulator 
+```
+$ roslaunch kuka_lwr_bringup lwr_simulation.launch
+```
+Cartesian-to-Joint/Joint-to-Cart Estimation
+```
+$ roslaunch state_transformers pouring_ctrls_sim.launch
+```
+
+####To test this interface with the real robot (specifically for teaching commands)
+Launch rviz visualizer 
+```
+$ roslaunch kuka_lwr_bringup lwr_realtime.launch
+```
+Cartesian-to-Joint/Joint-to-Cart Estimation
+```
+$ roslaunch state_transformers pouring_ctrls_real.launch
+```
+
+---
 ####Test Action Server/Client for KUKA control:
 
 Launch server
@@ -45,25 +67,4 @@ Linear Joint Motion (position interface in bridge):
 ```
 $ rosservice call /control_cmd_interface/kuka_action_cmd 'goto_init'
 $ rosservice call /control_cmd_interface/kuka_action_cmd 'goto_home'
-```
-
----
-####To test this interface in simulation
-Launch rviz simulator 
-```
-$ roslaunch kuka_lwr_bringup lwr_simulation.launch
-```
-Cartesian-to-Joint/Joint-to-Cart Estimation
-```
-$ roslaunch state_transformers pouring_ctrls_sim.launch
-```
-
-####To test this interface with the real robot (specifically for teaching commands)
-Launch rviz visualizer 
-```
-$ roslaunch kuka_lwr_bringup lwr_realtime.launch
-```
-Cartesian-to-Joint/Joint-to-Cart Estimation
-```
-$ roslaunch state_transformers pouring_ctrls_real.launch
 ```
