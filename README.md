@@ -12,7 +12,7 @@ Launch client
 $ roslaunch pour_kuka client.launch
 ```
 
-####Actions available in server:
+####Actions available in test server:
 
 CDS motions (velocity interface in bridge):
 ```
