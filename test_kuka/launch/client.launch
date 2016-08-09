@@ -8,7 +8,7 @@
 
 
 
-	<node name="pour_client_node" pkg="pour_kuka" type="pour_client_node" required="true" output="screen">
+	<node name="test_client_node" pkg="test_kuka" type="test_client_node" required="true" output="screen">
   		<param name="speech_topic" 	  	  value="$(arg speech_topic)"/>
   		<param name="action_service_name" 	  value="$(arg action_service_name)"/>
 		<param name="cmd_service_name"    	  value="$(arg cmd_service_name)"/>

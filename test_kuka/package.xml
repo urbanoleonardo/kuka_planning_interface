@@ -1,8 +1,8 @@
 <?xml version="1.0"?>
 <package>
-  <name>pour_kuka</name>
+  <name>test_kuka</name>
   <version>0.0.0</version>
-  <description>The peg_hole_kuka package</description>
+  <description>The test_kuka package</description>
 
   <!-- One maintainer tag required, multiple allowed, one person per tag --> 
   <!-- Example:  -->
