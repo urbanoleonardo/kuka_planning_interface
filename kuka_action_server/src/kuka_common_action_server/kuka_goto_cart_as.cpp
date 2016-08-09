@@ -22,25 +22,25 @@ Kuka_goto_cart_as::Kuka_goto_cart_as(ros::NodeHandle& nh, const Action_ee_initia
 
     dt                      = 1.0/100.0;
 
-    rviz_arrow.resize(1);
-    rviz_arrow[0].shaft_diameter = 0.005;
-    rviz_arrow[0].head_diameter  = 0.01;
-    rviz_arrow[0].head_length    = 0.015;
+    // rviz_arrow.resize(1);
+    // rviz_arrow[0].shaft_diameter = 0.005;
+    // rviz_arrow[0].head_diameter  = 0.01;
+    // rviz_arrow[0].head_length    = 0.015;
 
-    std::vector<tf::Vector3> colors(1);
-    colors[0] = tf::Vector3(1,0,0);
+    // std::vector<tf::Vector3> colors(1);
+    // colors[0] = tf::Vector3(1,0,0);
 
-    rviz_direction.initialise(world_frame,rviz_arrow);
-    rviz_direction.set_color(colors);
-    rviz_direction.scale = 0.05;
+    // rviz_direction.initialise(world_frame,rviz_arrow);
+    // rviz_direction.set_color(colors);
+    // rviz_direction.scale = 0.05;
 
-    rviz_points.resize(1);
+    // rviz_points.resize(1);
 
-    rviz_points_viz.scale = 0.01;
-    rviz_points_viz.r     = 0;
-    rviz_points_viz.g     = 1;
-    rviz_points_viz.b     = 0;
-    rviz_points_viz.initialise(world_frame,rviz_points);
+    // rviz_points_viz.scale = 0.01;
+    // rviz_points_viz.r     = 0;
+    // rviz_points_viz.g     = 1;
+    // rviz_points_viz.b     = 0;
+    // rviz_points_viz.initialise(world_frame,rviz_points);
 
 }
 
@@ -148,20 +148,20 @@ bool Kuka_goto_cart_as::goto_cartesian_closed_loop(alib_server& as_,alib_feedbac
 
         speed = speed_generator.bel_shape_curve(dist_targ_origin);
 
-        rviz_arrow[0].origin    = current_origin;
-        rviz_arrow[0].direction = 0.05 * velocity.normalize();
+        // rviz_arrow[0].origin    = current_origin;
+        // rviz_arrow[0].direction = 0.05 * velocity.normalize();
 
         velocity = speed * velocity.normalize();
 
         des_ee_pose.setOrigin(velocity + current_origin);
         des_ee_pose.setRotation( current_orient.slerp(trans_att.getRotation(), slerp_t));
 
-        rviz_direction.update(rviz_arrow);
-        rviz_direction.publish();
+        // rviz_direction.update(rviz_arrow);
+        // rviz_direction.publish();
 
-        rviz_points[0]  = target_pos;
-        rviz_points_viz.update(rviz_points);
-        rviz_points_viz.publish();
+        // rviz_points[0]  = target_pos;
+        // rviz_points_viz.update(rviz_points);
+        // rviz_points_viz.publish();
 
       //  ROS_INFO("action type: %s",action_type.c_str());
 
