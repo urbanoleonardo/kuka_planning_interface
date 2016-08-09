@@ -43,13 +43,23 @@ bool Kuka_goto_joint_as::execute_CB(alib_server& as_,alib_feedback& feedback_,co
 
 
 
-        joint_target_pos[0] =  goal->JointStateImpedance.position[0];
-        joint_target_pos[1] =  goal->JointStateImpedance.position[1];
-        joint_target_pos[2] =  goal->JointStateImpedance.position[2];
-        joint_target_pos[3] =  goal->JointStateImpedance.position[3];
-        joint_target_pos[4] =  goal->JointStateImpedance.position[4];
-        joint_target_pos[5] =  goal->JointStateImpedance.position[5];
-        joint_target_pos[6] =  goal->JointStateImpedance.position[6];
+        ///--- Desired Joint Impedance Command--///
+        des_j_pose.resize(7);
+        des_j_stiffness.resize(7);
+
+        for(std::size_t i = 0; i < 7;++i){
+             des_j_pose(i)      = goal->JointStateImpedance.position[i];
+             des_j_stiffness(i) = goal->JointStateImpedance.stiffness[i];
+        }
+
+
+//        joint_target_pos[0] =  goal->JointStateImpedance.position[0];
+//        joint_target_pos[1] =  goal->JointStateImpedance.position[1];
+//        joint_target_pos[2] =  goal->JointStateImpedance.position[2];
+//        joint_target_pos[3] =  goal->JointStateImpedance.position[3];
+//        joint_target_pos[4] =  goal->JointStateImpedance.position[4];
+//        joint_target_pos[5] =  goal->JointStateImpedance.position[5];
+//        joint_target_pos[6] =  goal->JointStateImpedance.position[6];
 
         joint_position_error.setZero();
 
@@ -74,7 +84,7 @@ bool Kuka_goto_joint_as::execute_CB(alib_server& as_,alib_feedback& feedback_,co
            // std::cout<< "joint_position_error:  " << joint_position_error << std::endl;
 
 
-            joint_position_error = (joint_target_pos - j_position);
+            joint_position_error = (des_j_pose - j_position);
             dist_target = joint_position_error.norm();
 
            // std::cout<< "dist_target: " << dist_target << std::endl;
@@ -101,16 +111,13 @@ bool Kuka_goto_joint_as::execute_CB(alib_server& as_,alib_feedback& feedback_,co
             joint_target_pos_it = j_position + joint_target_vel;
 
 
-
-
-
             ////--- CHOOSE EITHER POSITION OR VELOCITY CONTROL FOR DIFFERENT SCENARIOS ---///
             // set target joint position (if you want to use this one with real robot
             // you have to increase the stiffness to at least 500 before the transition otherwise CLICK!)
             //            setJointPos(joint_target_pos_it);
 
             setJointVel(joint_target_vel);
-            sendJointImpedance(j_stiffness);
+            sendJointImpedance(des_j_stiffness);
 
             ROS_INFO("current: %f %f %f %f %f %f %f",j_position[0],j_position[1],j_position[2],j_position[3],j_position[4],j_position[5],j_position[6]);
             ROS_INFO("target_vel:  %f %f %f %f %f %f %f",joint_target_vel[0],joint_target_vel[1],joint_target_vel[2],joint_target_vel[3],joint_target_vel[4],joint_target_vel[5],joint_target_vel[6]);
@@ -119,7 +126,7 @@ bool Kuka_goto_joint_as::execute_CB(alib_server& as_,alib_feedback& feedback_,co
             ///--- Stop sending when the desired joint position is reached ---///
             ROS_INFO_STREAM("Current error to desired target: " << dist_target);
 
-            if(dist_target < 0.01){
+            if(dist_target < 0.1){
                 ROS_INFO("Desired joint position REACHED!");
                 ROS_INFO("Terminated Joint Control Mode!");
                 success  = true;
@@ -139,11 +146,10 @@ bool Kuka_goto_joint_as::execute_CB(alib_server& as_,alib_feedback& feedback_,co
         }
 
         // cleanup send once joint velocitise of zero
-
         joint_target_vel.setZero();
         setJointVel(joint_target_vel);
+        sendJointImpedance(des_j_stiffness);
         ros::spinOnce();
-
 
 
         ROS_INFO("Stopping GOTO_JOINT");

@@ -116,9 +116,13 @@ Create_pour_goals::Create_pour_goals(){
     {
         ac::Goal goal;
         des_position  =  {{-0.293507303216,-0.268253,0.115399,-1.777066, 0.96409, 1.517602, -0.6515033333075878}};
+        des_stiffness =  {{500,500,500,500,500,500,500}};
 
-        for(std::size_t i = 0; i < KUKA_DOF;i++)
+        for(std::size_t i = 0; i < KUKA_DOF;i++){
             jointStateImpedance.position[i]      = des_position[i];
+            jointStateImpedance.stiffness[i]     = des_stiffness[i];
+        }
+
 
         goal.action_name            = "goto_joint";
         goal.JointStateImpedance    = jointStateImpedance;
@@ -131,9 +135,12 @@ Create_pour_goals::Create_pour_goals(){
     {
         ac::Goal goal;
         des_position  =  {{-0.13257421553134918, 0.4764285385608673, -0.5156097412109375, -1.3769710063934326, 0.7565410137176514, 1.7599353790283203, -0.7787759304046631}};
+        des_stiffness =  {{500,500,500,500,500,500,500}};
 
-        for(std::size_t i = 0; i < KUKA_DOF;i++)
+        for(std::size_t i = 0; i < KUKA_DOF;i++){
             jointStateImpedance.position[i]      = des_position[i];
+            jointStateImpedance.stiffness[i]     = des_stiffness[i];
+        }
 
         goal.action_name            = "goto_joint";
         goal.JointStateImpedance    = jointStateImpedance;
