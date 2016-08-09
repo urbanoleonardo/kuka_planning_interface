@@ -6,7 +6,7 @@ project(kuka_action_server)
 ## is used, also find other catkin packages
 find_package(catkin REQUIRED std_tools roscpp mathlib robotlib cds_execution tf cmake_modules optitrack_rviz)
 
-set(CMAKE_CXX_FLAGS "-O2 -O3 -std=c++11 -std=c++14 -fext-numeric-literals -mtune=native -fPIC -Wall -Wno-deprecated-declarations")
+set(CMAKE_CXX_FLAGS "-O2 -O3 -std=c++11 -fext-numeric-literals -mtune=native -fPIC -Wall -Wno-deprecated-declarations")
 
 catkin_package(
    INCLUDE_DIRS include
