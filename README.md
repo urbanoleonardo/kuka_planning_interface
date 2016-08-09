@@ -51,7 +51,7 @@ $ roslaunch state_transformers pouring_ctrls_sim.launch
 ```
 
 ####To test this interface with the real robot (specifically for teaching commands)
-Launch rviz simulator 
+Launch rviz visualizer 
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
 ```
