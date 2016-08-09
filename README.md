@@ -4,39 +4,39 @@
 
 Launch server
 ```
-$ roslaunch pour_kuka server.launch
+$ roslaunch test_kuka server.launch
 ```
 
 Launch client
 ```
-$ roslaunch pour_kuka client.launch
+$ roslaunch test_kuka client.launch
 ```
 
 ####Actions available in test server:
 
 CDS motions (velocity interface in bridge):
 ```
-$ rosservice call /control_cmd_interface/kuka_cmd 'home'
-$ rosservice call /control_cmd_interface/kuka_cmd 'pour'
-$ rosservice call /control_cmd_interface/kuka_cmd 'back'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'home'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'pour'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'back'
 ```
 
 Teaching commands (velocity interface in bridge):
 ```
-$ rosservice call /control_cmd_interface/kuka_cmd 'grav_comp'
-$ rosservice call /control_cmd_interface/kuka_cmd 'safe_grav_comp'
-$ rosservice call /control_cmd_interface/kuka_cmd 'joint_imp'
-$ rosservice call /control_cmd_interface/kuka_cmd 'joint_stiff'
-$ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_6'
-$ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_7'
-$ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_5_6'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'grav_comp'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'safe_grav_comp'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'joint_imp'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'joint_stiff'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'lock_joint_6'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'lock_joint_7'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'lock_joint_5_6'
 
 ```
 
 Linear Joint Motion (position interface in bridge):
 ```
-$ rosservice call /control_cmd_interface/kuka_cmd 'goto_init'
-$ rosservice call /control_cmd_interface/kuka_cmd 'goto_home'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'goto_init'
+$ rosservice call /control_cmd_interface/kuka_action_cmd 'goto_home'
 ```
 
 ---
