@@ -1,5 +1,12 @@
 # kuka_planning_interface
 
+| Dependencies  |
+| ------------- |
+| [kuka_interface_packages](https://github.com/nbfigueroa/kuka_interface_packages)    |
+| [kuka-rviz-simulation](https://github.com/epfl-lasa/kuka-rviz-simulation)           |
+| [state-transformers](https://github.com/epfl-lasa/state-transformers) |
+| [CDS](https://github.com/epfl-lasa/coupled-dynamical-systems) |
+
 ####Test Action Server/Client for KUKA control:
 
 Launch server
