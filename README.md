@@ -1,4 +1,5 @@
 # kuka_planning_interface
+Action/Client Interface to test robot functionalities, such as executing CDS models + setting stiffness for teaching modes + simple motion generators in task and joint space.
 
 | Dependencies  |
 | ------------- |
