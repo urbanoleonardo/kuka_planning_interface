@@ -38,3 +38,25 @@ $ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_7'
 $ rosservice call /control_cmd_interface/kuka_cmd 'lock_joint_5_6'
 
 ```
+
+---
+####To test this interface in simulation
+Launch rviz simulator 
+```
+$ roslaunch kuka_lwr_bringup lwr_simulation.launch
+```
+Cartesian-to-Joint/Joint-to-Cart Estimation
+```
+$ roslaunch state_transformers pouring_ctrls_sim.launch
+```
+
+####To test this interface with the real robot (specifically for teaching commands)
+Launch rviz simulator 
+```
+$ roslaunch kuka_lwr_bringup lwr_realtime.launch
+```
+If testing CDS pouring models (otherwise not needed):
+Cartesian-to-Joint/Joint-to-Cart Estimation
+```
+$ roslaunch state_transformers pouring_ctrls_real.launch
+```
