@@ -55,7 +55,6 @@ Launch rviz simulator
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
 ```
-If testing CDS pouring models (otherwise not needed):
 Cartesian-to-Joint/Joint-to-Cart Estimation
 ```
 $ roslaunch state_transformers pouring_ctrls_real.launch
