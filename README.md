@@ -19,12 +19,12 @@ Cartesian-to-Joint/Joint-to-Cart Estimation
 $ roslaunch state_transformers pouring_ctrls_sim.launch
 ```
 
-####To test this interface with the real robot (specifically for teaching commands)
+####To test this interface with the real robot
 Launch rviz visualizer 
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
 ```
-Cartesian-to-Joint/Joint-to-Cart Estimation (not necessary for teaching modes)
+Cartesian-to-Joint/Joint-to-Cart Estimation (not necessary for teaching commands)
 ```
 $ roslaunch state_transformers pouring_ctrls_real.launch
 ```
