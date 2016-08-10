@@ -24,7 +24,7 @@ Launch rviz visualizer
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
 ```
-Cartesian-to-Joint/Joint-to-Cart Estimation
+Cartesian-to-Joint/Joint-to-Cart Estimation (not necessary for teaching modes)
 ```
 $ roslaunch state_transformers pouring_ctrls_real.launch
 ```
