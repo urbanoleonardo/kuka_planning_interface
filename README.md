@@ -9,7 +9,7 @@ Action/Client Interface to test robot functionalities, such as executing CDS mod
 | [CDS](https://github.com/epfl-lasa/coupled-dynamical-systems) |
 
 ---
-####To test this interface in simulation
+#### To test this interface in simulation
 Launch rviz simulator 
 ```
 $ roslaunch kuka_lwr_bringup lwr_simulation.launch
@@ -19,7 +19,7 @@ Cartesian-to-Joint/Joint-to-Cart Estimation
 $ roslaunch state_transformers pouring_ctrls_sim.launch
 ```
 
-####To test this interface with the real robot
+#### To test this interface with the real robot
 Launch rviz visualizer 
 ```
 $ roslaunch kuka_lwr_bringup lwr_realtime.launch
@@ -30,7 +30,7 @@ $ roslaunch state_transformers pouring_ctrls_real.launch
 ```
 
 ---
-####Test Action Server/Client for KUKA control:
+#### Test Action Server/Client for KUKA control:
 
 Launch server
 ```
@@ -42,7 +42,7 @@ Launch client
 $ roslaunch test_kuka client.launch
 ```
 
-####Actions available in test server:
+#### Actions available in test server:
 
 CDS motions (velocity interface in bridge):
 ```
