@@ -1,6 +1,6 @@
 #include "test_kuka/test_action_client.h"
 #include <geometry_msgs/Transform.h>
-#include <Eigen/Core>
+#include <eigen3/Eigen/Core>
 
 Create_pour_goals::Create_pour_goals(){
 

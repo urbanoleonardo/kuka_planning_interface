@@ -1,16 +1,14 @@
 #include "kuka_common_action_server/kuka_goto_cart_as.h"
 #include <functional>
-#include <Eigen/Core>
-#include <Eigen/Eigen>
-#include <Eigen/Geometry>
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Eigen>
+#include <eigen3/Eigen/Geometry>
 
 namespace asrv{
 
 Kuka_goto_cart_as::Kuka_goto_cart_as(ros::NodeHandle& nh, const Action_ee_initialiser &action_ee_init)
     : Base_ee_action(nh, action_ee_init.ee_state_pos_topic,action_ee_init.ee_cmd_pos_topic,action_ee_init.ee_cmd_ft_topic, action_ee_init.ee_cmd_vel_topic),
-      Base_action_server(nh),
-      rviz_direction(nh,"kuka_goto_dir"),
-      rviz_points_viz(nh,"kuka_goto_target")
+      Base_action_server(nh)
 {
 
     action_name             = action_ee_init.action_name;

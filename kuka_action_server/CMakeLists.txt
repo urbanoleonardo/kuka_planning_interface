@@ -4,15 +4,15 @@ project(kuka_action_server)
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
 ## is used, also find other catkin packages
-find_package(catkin REQUIRED std_tools roscpp mathlib robotlib cds_execution tf cmake_modules optitrack_rviz)
+find_package(catkin REQUIRED std_tools roscpp mathlib robotlib cds_execution tf cmake_modules)
 
 set(CMAKE_CXX_FLAGS "-O2 -O3 -std=c++11 -fext-numeric-literals -mtune=native -fPIC -Wall -Wno-deprecated-declarations")
 
 catkin_package(
    INCLUDE_DIRS include
-   LIBRARIES ${PROJECT_NAME} optitrack_rviz
-   CATKIN_DEPENDS std_tools tf mathlib optitrack_rviz
-#  DEPENDS system_lib
+   LIBRARIES ${PROJECT_NAME}
+   CATKIN_DEPENDS roscpp cmake_modules std_tools tf mathlib
+   DEPENDS system_lib Eigen
 )
 
 include_directories(include ${catkin_INCLUDE_DIRS})
@@ -22,8 +22,9 @@ set(INCLUDE_DIR ${CMAKE_CURRENT_SOURCE_DIR}/include)
 set(SRC_DIR ${CMAKE_CURRENT_SOURCE_DIR}/src)
 
 
-find_package(Eigen)
-include_directories(${INCLUDE_DIR} ${catkin_INCLUDE_DIRS} ${Eigen_INCLUDE_DIRS})
+find_package(Eigen REQUIRED)
+include_directories(${INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
+#include_directories(${INCLUDE_DIR} ${catkin_INCLUDE_DIRS})
 
 
 set(H_FILES  	${INCLUDE_DIR}/kuka_action_server/base_action_server.h

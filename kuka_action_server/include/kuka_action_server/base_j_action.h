@@ -6,8 +6,8 @@
 #include <std_msgs/Bool.h>
 #include <kuka_fri_bridge/JointStateImpedance.h>
 
-#include <Eigen/Core>
-#include <Eigen/Geometry>
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Geometry>
 
 namespace asrv{
 

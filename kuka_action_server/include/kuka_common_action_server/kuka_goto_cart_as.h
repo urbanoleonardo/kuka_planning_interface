@@ -15,8 +15,8 @@
 #include "kuka_action_server/base_j_action.h"
 #include "kuka_common_action_server/action_initialiser.h"
 #include "kuka_common_action_server/speed_generator.h"
-#include "visualise/vis_vector.h"
-#include "visualise/vis_points.h"
+//#include "visualise/vis_vector.h"
+//#include "visualise/vis_points.h"
 
 
 namespace asrv{
@@ -53,11 +53,11 @@ private:
     double                  reachingThreshold;
     double                  orientationThreshold;
 
-    opti_rviz::Vis_vectors          rviz_direction;
-    std::vector<opti_rviz::Arrow>   rviz_arrow;
+//    opti_rviz::Vis_vectors          rviz_direction;
+//    std::vector<opti_rviz::Arrow>   rviz_arrow;
 
-    std::vector<tf::Vector3>        rviz_points;
-    opti_rviz::Vis_points           rviz_points_viz;
+//    std::vector<tf::Vector3>        rviz_points;
+//    opti_rviz::Vis_points           rviz_points_viz;
 
 
 };

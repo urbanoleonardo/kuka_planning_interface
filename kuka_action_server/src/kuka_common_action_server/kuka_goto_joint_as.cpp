@@ -1,8 +1,8 @@
 #include "kuka_common_action_server/kuka_goto_joint_as.h"
 #include <tf/tf.h>
 #include <tf/transform_listener.h>
-#include <Eigen/Core>
-#include <Eigen/Eigen>
+#include <eigen3/Eigen/Core>
+#include <eigen3/Eigen/Eigen>
 
 namespace asrv{
 
